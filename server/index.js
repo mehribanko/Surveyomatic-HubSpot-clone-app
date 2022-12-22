@@ -19,6 +19,7 @@ app.use(cookieSession({
   keys: [keys.cookieKey],
 }))
 
+// we are telling passport to use cookie session here 
 app.use(passport.initialize());
 app.use(passport.session());
 
