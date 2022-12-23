@@ -5,7 +5,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          hola
+          <a href="/auth/google">Sign in with Google</a>
         </p>
       </header>
     </div>
