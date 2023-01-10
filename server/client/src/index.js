@@ -1,17 +1,20 @@
-import ReactDom from'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
- 
+import reducers from './reducers';
 import App from './components/App';
 
-const store = createStore(() => [], {}, applyMiddleware());
+import { createRoot } from "react-dom/client";
 
-ReactDom.render(
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+const store = createStore(reducers, {}, applyMiddleware());
+
+root.render(
     <Provider store={store}>
         <App />         
-    </Provider> ,
-    document.querySelector('#root')
+    </Provider> 
 );
 
  
