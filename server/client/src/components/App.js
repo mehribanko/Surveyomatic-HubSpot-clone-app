@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Header from './Header';
 
 
-const Header = () => <h2>Header</h2>
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SuurveyNew</h2>
 const Landing = () => <h2>Landing</h2>
@@ -14,8 +14,11 @@ const App = () => {
             {/* BrowserRouter can have only one child */}
             <BrowserRouter>
                 <div>
-                    <Routes>
+                    <Header />
+                    <Routes>    
                         <Route path="/" element={<Landing/>} />
+                        <Route path="/surveys" element={<Dashboard/>} />
+                        <Route path="/surveys/new" element={<SurveyNew/>} />
                     </Routes>                    
                 </div>
             </BrowserRouter>
