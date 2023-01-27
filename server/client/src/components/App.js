@@ -10,7 +10,7 @@ const Landing = () => <h2>Landing</h2>
 const App = () => {
 
     return (
-        <div className='container'>
+        <div>
             {/* BrowserRouter can have only one child */}
             <BrowserRouter>
                 <div>
