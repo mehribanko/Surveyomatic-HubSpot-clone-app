@@ -3,5 +3,8 @@ import { FETCH_USER } from './types';
 
 // this is an action creator
 const fetchUser = () => {
-    axios.get('/api/current_user');
+    return function(dispatch){
+        axios.get('/api/current_user')
+            .then(res => { type: FETCH_USER, payload: res})
+    }
 }
