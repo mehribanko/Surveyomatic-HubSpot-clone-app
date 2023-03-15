@@ -11,6 +11,7 @@ import { createRoot } from "react-dom/client";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
+// index file is going to be about setting up redux
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 root.render(
