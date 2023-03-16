@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-// this is an action creator
-const fetchUser = () => {
+// this is an action creator, it is refactored to use reduxThunk.
+// when this action creator gets called, it instantly returns a function. 
+// reduxThunk sees that we are returning a function instead of a normal action object, and passes
+// dispatch function as an argument
+export const fetchUser = () => {
     return function(dispatch){
         axios.get('/api/current_user')
-            .then(res => ({ type: FETCH_USER, payload: res}));
+            .then(res => dispatch({ type: FETCH_USER, payload: res}));
     }
 }
