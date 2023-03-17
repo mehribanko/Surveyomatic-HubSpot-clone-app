@@ -1,12 +1,27 @@
 import { Component } from "react";
-
+import { connect } from "react-redux";
 
 // class-based component 
 // more easier to organize code (functions) inside class-based components
+// to make Header component aware of the global state we need to hook it up in redux store
+// to hook up a component into redux store, we import  {connect } from react-redux and define mapStateToProps function
+// and drag out available states from there
 class Header extends Component {
 
-    render() {
+  renderContent(){
+    switch(this.props.auth){
+      case null:
+        return;
+      case false:
+        return (
+          <li><a href="/auth/google">Login With Google</a></li>
+        )
+      default:        
+        return <li><a href="/api/logout">Logout</a></li>
+    }
+  }
 
+    render() {
         return(
 
             <nav className="flex items-center justify-between flex-wrap  p-6 shadow-lg" style={{backgroundColor: "#00a989"}}>
@@ -32,7 +47,9 @@ class Header extends Component {
                 </a>
               </div>
               <div>
-                <a href="#header" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Sign in with Google</a>
+                <a href="#header" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                {this.renderContent()}
+                </a>
               </div>
             </div>
           </nav>
@@ -42,5 +59,15 @@ class Header extends Component {
     }
 }
 
+// function mapStateToProps({state}){
+//   return { auth: state.auth }
+// }
 
-export default Header;
+
+function mapStateToProps({auth}){
+  return { auth }
+}
+
+
+
+export default connect(mapStateToProps) (Header);
