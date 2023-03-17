@@ -5,6 +5,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import App from './components/App';
 import './index.css';
+import 'tailwindcss/tailwind.css';
 
 import { createRoot } from "react-dom/client";
 
