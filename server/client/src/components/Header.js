@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import {Link }  from 'react-router-dom';
+import StripePay from "./StripePay";
+
 
 // class-based component 
 // more easier to organize code (functions) inside class-based components
@@ -15,10 +17,19 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li><a href="/auth/google">Login With Google</a></li>
+          <div><a href="/auth/google">Login With Google</a></div>
         )
-      default:        
-        return <li><a href="/api/logout">Logout</a></li>
+      default:  
+        let contentList= [
+          <StripePay/>,
+          <a href="/api/logout">Logout</a>,
+        ];
+
+        return(
+          <div>{contentList}</div>
+        )
+        
+        
     }
   }
 
@@ -53,8 +64,11 @@ class Header extends Component {
               </div>
               <div>
                 <a href="#header" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-                {this.renderContent()}
+                {this.renderContent().props.children[0]}
                 </a>
+                <div className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                {this.renderContent().props.children[1]}
+                </div>
               </div>
             </div>
           </nav>
