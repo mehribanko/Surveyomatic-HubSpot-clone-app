@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import {Link }  from 'react-router-dom';
+import StripePay from "./StripePay";
+
 
 // class-based component 
 // more easier to organize code (functions) inside class-based components
@@ -12,15 +14,20 @@ class Header extends Component {
   renderContent(){
     switch(this.props.auth){
       case null:
-        return;
-      case false:
-        return (
-          <li><a href="/auth/google">Login With Google</a></li>
-        )
-      default:        
-        return <li><a href="/api/logout">Logout</a></li>
+        return [];
+
+        case false:
+       return [
+            <li><a href="/auth/google" key='login'>Login With Google</a></li>
+        ]
+      default:  
+        return [
+          <li><StripePay key='stripe'/></li>,
+          <li><a href="/api/logout" key='logout'>Logout</a></li>
+       ];
+      }
     }
-  }
+  
 
     render() {
         return(
@@ -28,7 +35,7 @@ class Header extends Component {
             <div className="flex items-center flex-shrink-0 text-white mr-6">
               <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
               <Link
-                to={this.props.auth ? '/survers' : '/'} 
+                to={this.props.auth ? '/surveys' : '/'} 
                 className="font-semibold text-xl tracking-tight" 
               >
                 Surveyomatic
@@ -51,13 +58,22 @@ class Header extends Component {
                   New Survey
                 </a>
               </div>
-              <div>
-                <a href="#header" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-                {this.renderContent()}
-                </a>
-              </div>
+              {this.renderContent().length === 1 
+                   ? <div className="inline-block text-sm px-4 py-2 leading-none list-none  border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                    <div className="flex space-x-4">
+                      {this.renderContent()}
+                    </div> 
+                  </div>
+                  : <> <div className="inline-block text-sm px-6 py-2 leading-none list-none  text-white  hover:border-transparent hover:text-teal-500 mt-4 lg:mt-0 gap-6">
+                        {this.renderContent()[0]}
+                      </div>
+                    <div className="inline-block text-sm px-4 py-2 leading-none list-none  border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                        <div className="flex space-x-4">
+                            {this.renderContent()[1]}
+                       </div>
+                    </div> </> }
             </div>
-          </nav>
+          </nav>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
         );
     }
 }
