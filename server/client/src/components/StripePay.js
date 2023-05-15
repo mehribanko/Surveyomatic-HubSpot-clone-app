@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import {connect} from 'react-redux';
+import * as actions from '../actions';
+
+// there is an actionc reator that posts tokens to backend api, we need to call it every time we get a token from Stripe. 
+// we need to hook up our action creator to this file (with connectors and stuff)
 
 class StripePay extends Component{
     render(){
@@ -9,7 +14,7 @@ class StripePay extends Component{
                 name='Surveyomatic'
                 description='$10 for 10 email credits'
                 amount={1000}
-                token={token=> console.log(token)}
+                token={token=> this.props.handleToken(token) }
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
 
             >
@@ -23,6 +28,6 @@ class StripePay extends Component{
 
 
 
-export default StripePay;
+export default connect(null, actions) (StripePay);
 
 

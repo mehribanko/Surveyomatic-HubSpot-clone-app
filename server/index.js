@@ -25,6 +25,7 @@ app.use(passport.session());
 
 
 require("./routes/AuthRoutes")(app);
+require("./routes/PayRoutes")(app);
 
 app.listen(PORT, function () {
   console.log(`server running on ${PORT}`);

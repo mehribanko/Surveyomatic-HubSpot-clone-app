@@ -27,7 +27,7 @@ export const fetchUser = () => async (dispatch) => {
 // back to the server, node js api will follow up and update the number of credits the user has and will send 
 // back the current user modal (in an auth reducer) 
 export const handleToken = token => async dispatch => {
-  const res = await axios.post('api/stripe', token); 
+  const res = await axios.post('/api/stripe', token); 
   dispatch({type: FETCH_USER, payload: res.data});
 }
 
