@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose= require ('mongoose');
 const cookieSession= require('cookie-session');
+const bodyParser = require('body-parser');
 const passport = require('passport');
 const keys = require('./config/keys');
 require("./models/User");
@@ -14,6 +15,8 @@ mongoose.connect(keys.mongoURI);
 const PORT = process.env.PORT || 9000;
 const app = express();
 
+app.use(bodyParser.json());
+
 app.use(cookieSession({
   maxAge: 30*24*60*60*1000,
   keys: [keys.cookieKey],
@@ -25,6 +28,7 @@ app.use(passport.session());
 
 
 require("./routes/AuthRoutes")(app);
+require("./routes/PayRoutes")(app);
 
 app.listen(PORT, function () {
   console.log(`server running on ${PORT}`);
