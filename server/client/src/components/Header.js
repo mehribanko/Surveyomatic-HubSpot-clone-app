@@ -23,6 +23,7 @@ class Header extends Component {
       default:  
         return [
           <li><StripePay key='stripe'/></li>,
+          <li><h5>Credits: {this.props.auth.credits}</h5></li>,
           <li><a href="/api/logout" key='logout'>Logout</a></li>
        ];
       }
@@ -64,13 +65,16 @@ class Header extends Component {
                       {this.renderContent()}
                     </div> 
                   </div>
-                  : <> <div className="inline-block text-sm px-6 py-2 leading-none list-none  text-white  hover:border-transparent hover:text-teal-500 mt-4 lg:mt-0 gap-6">
+                  : <> <div className="inline-block text-sm px-2 py-2 leading-none list-none  text-white  hover:border-transparent hover:text-teal-500 mt-4 lg:mt-0 gap-6">
                         {this.renderContent()[0]}
+                      </div>
+                      <div className="inline-block flex items-center text-sm  px-4 py-2 leading-none list-none text-white bg-teal-500 hover:bg-teal-500 mt-6 lg:mt-0 ml-2 mr-2 rounded p-3 w-30 h-12">
+                        {this.renderContent()[1]}
                       </div>
                     <div className="inline-block text-sm px-4 py-2 leading-none list-none  border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
                         <div className="flex space-x-4">
-                            {this.renderContent()[1]}
-                       </div>
+                            {this.renderContent()[2]}
+                    </div>
                     </div> </> }
             </div>
           </nav>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
