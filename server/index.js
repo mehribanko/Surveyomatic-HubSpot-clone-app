@@ -30,6 +30,17 @@ app.use(passport.session());
 require("./routes/AuthRoutes")(app);
 require("./routes/PayRoutes")(app);
 
+if(process.env.NODE_ENV === "production"){
+  // express backend server will serve main.js / main.css file (assets)
+  app.use(express.static('client/build'))
+
+  // express backend server will serve index.html file if the route is not found on the backend route handlers
+  const path  = require('path');
+  app.get('*', (req,res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  });
+}
+
 app.listen(PORT, function () {
   console.log(`server running on ${PORT}`);
 });
