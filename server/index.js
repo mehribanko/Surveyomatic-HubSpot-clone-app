@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const keys = require('./config/keys');
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 // we let passport to keep track of our users by using cookies
