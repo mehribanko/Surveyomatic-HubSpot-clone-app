@@ -30,6 +30,7 @@ app.use(passport.session());
 
 require("./routes/AuthRoutes")(app);
 require("./routes/PayRoutes")(app);
+require("./routes/SurveyRoutes")(app);
 
 if(process.env.NODE_ENV === "production"){
   // express backend server will serve main.js / main.css file (assets)
