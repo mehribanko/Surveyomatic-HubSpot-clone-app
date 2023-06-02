@@ -1,6 +1,7 @@
 const creditCheck = require("../middlewares/creditCheck");
 const requireLogin = require("../middlewares/requireLogin");
 const mongoose= require("mongoose");
+const Mailer = require('../services/Mailer');
 const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
@@ -15,5 +16,10 @@ module.exports = (app) => {
             belongsTo: req.user.id,
             dateSent: Date.now()
         })
+
+
+        const mailer = new Mailer(survey, template ); 
+
+
     })          
 };
