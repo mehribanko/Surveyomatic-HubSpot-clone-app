@@ -9,6 +9,8 @@ import StripePay from "./StripePay";
 // to make Header component aware of the global state we need to hook it up in redux store
 // to hook up a component into redux store, we import  {connect } from react-redux and define mapStateToProps function
 // and drag out available states from there
+
+
 class Header extends Component {
 
   renderContent(){
@@ -16,7 +18,7 @@ class Header extends Component {
       case null:
         return [];
 
-        case false:
+      case false:
        return [
             <li><a href="/auth/google" key='login'>Login With Google</a></li>
         ]
@@ -81,10 +83,6 @@ class Header extends Component {
         );
     }
 }
-
-// function mapStateToProps({state}){
-//   return { auth: state.auth }
-// }
 
 
 function mapStateToProps({auth}){
