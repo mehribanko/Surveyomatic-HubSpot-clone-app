@@ -7,6 +7,6 @@ const recipientSchema = new Schema({
     clicked: {Boolean, default: false}
 });
 
-// name of the collection - name of the schema
-// surveys collection stores list of surveys, each survey instance has subdocument collection
+// mongoose arqali mongo dbda skima reg qilip, kollektsiya jaratip atirgan joqpiz
+// recipientSchema tek eksport qilip atirmiz
 module.exports = recipientSchema;
