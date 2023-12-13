@@ -33,7 +33,7 @@ const Landing = () => {
         </div>
         <section class="bg-gradient-to-r from-purple-800 to-indigo-600 text-white py-16">
             <div class="container mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-8">Welcome to Surveyomatic: Elevate Your Business Through Customer Insights</h2>
+                <h2 class="text-4xl font-bold mb-8">Elevate Your Business Through Customer Insights</h2>
 
                 <p class="text-lg text-gray-300 max-w-3xl mx-auto">
                     At Surveyomatic, we believe in the power of customer feedback to drive business success. We provide a seamless platform for business owners like you to connect with your customers, understand their needs, and shape the future of your products and services.
@@ -45,7 +45,7 @@ const Landing = () => {
         <section className="bg-white border-b py-8">
         <div className="container mx-auto flex flex-wrap pt-4 pb-12">
             <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-              Feedback fuels growth and businesses thrive!
+              Grow with Surveyomatic!
             </h2>
             <div className="w-full mb-4">
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -152,14 +152,14 @@ const Landing = () => {
                     Free
                 </div>
                 <ul className="w-full text-center text-sm">
-                    <li className="border-b py-4">50 Surveys</li>
+                    <li className="border-b py-4">1 Survey</li>
                     <li className="border-b py-4"> 1 Chart</li>
-                    <li className="border-b py-4">1 Promotional Email Package</li>
+                    <li className="border-b py-4">0 Promotional Email Package</li>
                 </ul>
                 </div>
                 <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
                 <div className="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-                    £0
+                    $0
                     <span className="text-base">&nbsp; for one user</span>
                 </div>
                 <div className="flex items-center justify-center">
@@ -174,9 +174,9 @@ const Landing = () => {
                 <div className="w-full p-8 text-3xl font-bold text-center">Basic</div>
                 <div className="h-1 w-full gradient my-0 py-0 rounded-t"></div>
                 <ul className="w-full text-center text-base font-bold">
-                    <li className="border-b py-4">200 Surveys</li>
+                    <li className="border-b py-4">10 Surveys</li>
                     <li className="border-b py-4">5 Charts</li>
-                    <li className="border-b py-4">3 Promotional Email Package</li>
+                    <li className="border-b py-4">3 Promotional Email Packages</li>
                 </ul>
                 </div>
                 <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
@@ -197,9 +197,9 @@ const Landing = () => {
                     Pro
                 </div>
                 <ul className="w-full text-center text-sm">
-                    <li className="border-b py-4">700 Surveys</li>
-                    <li className="border-b py-4">10 Charts</li>
-                    <li className="border-b py-4">5 Promotional Email Package</li>
+                    <li className="border-b py-4">25 Surveys</li>
+                    <li className="border-b py-4">15 Charts</li>
+                    <li className="border-b py-4">6 Promotional Email Packages</li>
                 </ul>
                 </div>
                 <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
