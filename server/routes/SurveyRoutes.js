@@ -1,20 +1,20 @@
-const creditCheck = require("../middlewares/creditCheck");
-const requireLogin = require("../middlewares/requireLogin");
+const checkCredit = require("../middlewares/checkCredit");
+const checkLogin = require("../middlewares/checkLogin");
 const mongoose= require("mongoose");
 const Mailer = require('../services/Mailer');
 const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
-    app.post('/api/surveys', requireLogin, creditCheck, (req,res) => {
+    app.post('/api/surveys', checkLogin, checkCredit, (req,res) => {
 
         const {title, subject, body, recipients} = req.body;
         const survey = new Survey({
-            title,
-            subject,
-            body,
+            title: title,
+            subject: subject,
+            body: body,
             recipients: recipients.split(',').map(email=> ({email: email.trim()})),
             belongsTo: req.user.id,
-            dateSent: Date.now()
+            sentDate: Date.now()
         })
 
 

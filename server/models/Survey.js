@@ -8,14 +8,14 @@ const surveySchema = new Schema({
     body: String,
     subject: String,
     recipients: [recipientSchema],
-    yes: {type: Number, default: 0},
-    no: {type: Number, default: 0},
+    yesClicked: {type: Number, default: 0},
+    noClicked: {type: Number, default: 0},
     belongsTo: {type: Schema.Types.ObjectId, ref: 'User'},
-    dateSent: Date,
+    sentDate: Date,
     lastReplied: Date
 });
 
-// every survey belons to a particular user, here belongsTo establishes a relationship between 
+// every survey belongs to a particular user, here belongsTo establishes a relationship between 
 // surveySchema and user.
 
 // name of the collection - name of the schema
