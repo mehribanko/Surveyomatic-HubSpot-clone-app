@@ -41,7 +41,7 @@ To facilitate payments within the platform, the Stripe API is integrated, allowi
 1. **Clone the repository:**
 
    ```bash
- git clone https://github.com/mehribanko/SurveyScape.git](https://github.com/mehribanko/Surveyomatic-HubSpot-clone-app.git
+   git clone https://github.com/mehribanko/SurveyScape.git](https://github.com/mehribanko/Surveyomatic-HubSpot-clone-app.git
 
 2. **Install dependencies for both the frontend and backend**
 3. **Set up environment variables**
