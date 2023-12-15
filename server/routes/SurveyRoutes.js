@@ -3,6 +3,7 @@ const checkLogin = require("../middlewares/checkLogin");
 const mongoose= require("mongoose");
 const Mailer = require('../services/Mailer');
 const Survey = mongoose.model('surveys');
+const emailTemplate = require('../services/templates/emailTemplate');
 
 module.exports = (app) => {
     app.post('/api/surveys', checkLogin, checkCredit, (req,res) => {
@@ -18,7 +19,8 @@ module.exports = (app) => {
         })
 
 
-        const mailer = new Mailer(survey, template ); 
+        const mailer = new Mailer(survey, emailTemplate(survey));
+        mailer.send(); 
 
 
     })          

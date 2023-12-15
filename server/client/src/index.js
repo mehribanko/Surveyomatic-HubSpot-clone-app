@@ -9,6 +9,9 @@ import 'tailwindcss/tailwind.css';
 
 import { createRoot } from "react-dom/client";
 
+import axios from 'axios';
+window.axios= axios;
+
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 

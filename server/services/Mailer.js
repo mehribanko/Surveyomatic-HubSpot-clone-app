@@ -3,12 +3,13 @@ const mailgun = require('mailgun-js')({apiKey: keys.mailgunAPiKey, domain: keys.
 
 class Mailer {
 // whenever 'new' keyword is called, constructor is called
-    constructor({subject, recipients}, content){
+// Mailer class is designed to work with a comma-separated string of email addresses
+    constructor({subject, recipients}, template){
         this.data = {
-        from: 'mehrikodes@gmail.com',
+        from: 'mehriban@surveyomatic.cloudns.biz',
         to: this.formatAddresses(recipients),
         subject: subject,
-        html: content
+        html: template
     };
   }
 
