@@ -1,4 +1,8 @@
+const keys = require('../../config/keys');
+
 module.exports = (survey) => {
+    const baseUrl = keys.forwardingHome;
+
     return `
         <html>
             <head>
@@ -75,8 +79,8 @@ module.exports = (survey) => {
 
                     <p class="question">${survey.body}</p>
                     <div class="button-container">
-                        <a href="http://localhost:3000" class="yes">Yes</a>
-                        <a href="http://localhost:3000" class="no">No</a>
+                        <a href="${baseUrl}/api/surveys/thanks" class="yes">Yes</a>
+                        <a href="${baseUrl}/api/surveys/thanks" class="no">No</a>
                     </div>
                 </div>
             </body>

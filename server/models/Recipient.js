@@ -4,7 +4,7 @@ mongoose.set('strictQuery', false);
 
 const recipientSchema = new Schema({
     email: String,
-    clicked: {Boolean, default: false}
+    clicked: {type: Boolean, default: false}
 });
 
 // mongoose arqali mongo dbda skima reg qilip, kollektsiya jaratip atirgan joqpiz
