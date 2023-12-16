@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Dashboard extends Component{
 
@@ -29,8 +30,10 @@ class Dashboard extends Component{
       
             {/* Add Button */}
             <div className="fixed bottom-8 right-8">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white text-5xl p-8 rounded-full shadow-lg transition duration-300 transform hover:scale-110">
-                <strong>+</strong>
+            <button className="hover:darken text-white text-5xl p-8 rounded-full shadow-lg transition duration-300 transform hover:scale-110" style={{backgroundColor: "#00a989"}}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#007056")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#00a989")}>
+                <Link to="/surveys/new"><strong>+</strong></Link>
               </button>
             </div>
           </div>
