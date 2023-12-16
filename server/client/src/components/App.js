@@ -6,8 +6,7 @@ import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-const SurveyNew = () => <h2>SurveyNew</h2>
-
+import NewSurvey from './Forms/NewSurvey';
 
 class App extends Component {
 
@@ -25,7 +24,7 @@ class App extends Component {
                         <Routes>    
                             <Route path="/" element={<Landing/>} />
                             <Route path="/surveys" element={<Dashboard/>} />
-                            <Route path="/surveys/new" element={<SurveyNew/>} />
+                            <Route path="/surveys/new" element={<NewSurvey/>} />
                         </Routes>                    
                     </div>
                 </BrowserRouter>
