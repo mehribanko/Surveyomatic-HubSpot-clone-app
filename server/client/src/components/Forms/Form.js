@@ -1,7 +1,9 @@
 import { Component } from "react";
+import {Link} from 'react-router-dom';
 import {reduxForm, Field} from 'redux-form';
 import FormField from "./FormField";
-import {Link} from 'react-router-dom';
+import validateEmail from "../../helpers/validateEmail";
+
 const VALUES = [
     {label: 'Title', name: 'title'},
     {label: 'Subject Line', name: 'subject' },
@@ -24,7 +26,6 @@ class Form extends Component{
                         key={name}
                     />
                  </div>
-            // return <Field type='text' component={FormField} name={name} label={label} key={name}></Field>
         })
     }
 
@@ -33,11 +34,10 @@ class Form extends Component{
         return(
             <div className="bg-gray-200  flex justify-center items-center">
                 <div className="max-w-4xl w-full mx-4 my-8 p-8 bg-white rounded-md shadow-lg">
-                <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+                <form onSubmit={this.props.handleSubmit(this.props.onSubmit)}>
                     {this.showForm()}
                     <div className="mt-8 flex justify-between">
                     <Link to='/surveys'
-                        type="submit"
                         className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center"
                     >
                         <i className="fas fa-times-circle mr-2"></i>Cancel
@@ -58,7 +58,21 @@ class Form extends Component{
     }
 }
 
+function validate(values){
+    const errors={};
+    errors.recipient=validateEmail(values.recipient || ' ');
+    VALUES.forEach(({name})=>{
+        if(!values[name]){
+            errors[name]='Please, provide some value.'
+        }
+    })
+
+    
+    return errors;
+}
+
 
 export default reduxForm({
+    validate: validate,
     form: 'Form'
 })(Form);
