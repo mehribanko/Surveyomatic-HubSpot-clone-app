@@ -1,7 +1,7 @@
 
     export default [
-        {label: 'Title', name: 'title'},
-        {label: 'Subject Line', name: 'subject' },
-        {label: 'Survey Body', name: 'body'},
-        {label: 'Recipients', name: 'recipient'}
+        {label: 'Survey Name', name: 'title'},
+        {label: 'Email Title', name: 'subject' },
+        {label: 'Survey Question', name: 'body'},
+        {label: 'Recipients', name: 'recipients'}
     ]
