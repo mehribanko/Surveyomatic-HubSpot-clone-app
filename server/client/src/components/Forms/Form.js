@@ -3,13 +3,7 @@ import {Link} from 'react-router-dom';
 import {reduxForm, Field} from 'redux-form';
 import FormField from "./FormField";
 import validateEmail from "../../helpers/validateEmail";
-
-const VALUES = [
-    {label: 'Title', name: 'title'},
-    {label: 'Subject Line', name: 'subject' },
-    {label: 'Survey Body', name: 'body'},
-    {label: 'Recipients', name: 'recipient'}
-]
+import VALUES from "./fieldValues";
 
 class Form extends Component{
 
@@ -47,7 +41,7 @@ class Form extends Component{
                         type="submit"
                         className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center"
                     >
-                        Submit <i className="fas fa-check-circle ml-2"></i>
+                        Next <i className="fas fa-check-circle ml-2"></i>
                     </button>
                     </div>
                 </form>
@@ -74,5 +68,6 @@ function validate(values){
 
 export default reduxForm({
     validate: validate,
-    form: 'Form'
+    form: 'Form',
+    destroyOnUnmount: false
 })(Form);
