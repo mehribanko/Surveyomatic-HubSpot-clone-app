@@ -8,7 +8,7 @@ class NewSurvey extends Component{
 
     renderContent(){
         if(this.state.showReview){
-            return <FormReview onCancel={()=> this.setState({showReview: false})} />
+            return <FormReview  onCancel={()=> this.setState({showReview: false})} />
         }
 
         return <Form onSubmit={() => this.setState({showReview: true})} />
@@ -24,4 +24,8 @@ class NewSurvey extends Component{
     }
 }
 
-export default NewSurvey;
+
+
+  
+  
+  export default NewSurvey;
