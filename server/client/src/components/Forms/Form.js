@@ -54,7 +54,7 @@ class Form extends Component{
 
 function validate(values){
     const errors={};
-    errors.recipient=validateEmail(values.recipient || ' ');
+    errors.recipients=validateEmail(values.recipients || ' ');
     VALUES.forEach(({name})=>{
         if(!values[name]){
             errors[name]='Please, provide some value.'

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { connect } from "react-redux";
+import * as actions from '../../actions/index';
 import VALUES from "./fieldValues";
 
 
@@ -30,6 +31,7 @@ const  FormReview = (props) =>  {
                         </button>
 
                         <button
+                            onClick={()=> props.sendSurvey(props.formValues)}
                             type="submit"
                             className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center"
                         >
@@ -48,4 +50,4 @@ function mapStateToProps(state){
   }
   
   
-export default connect(mapStateToProps)(FormReview);
+export default connect(mapStateToProps, actions)(FormReview);
