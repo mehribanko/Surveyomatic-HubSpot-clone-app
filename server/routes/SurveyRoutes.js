@@ -4,6 +4,7 @@ const mongoose= require("mongoose");
 const Mailer = require('../services/Mailer');
 const Survey = mongoose.model('surveys');
 const emailTemplate = require('../services/templates/emailTemplate');
+const bodyParser = require('body-parser');
 
 module.exports = (app) => {
     app.post('/api/surveys', checkLogin, checkCredit, async (req,res) => {
@@ -30,6 +31,11 @@ module.exports = (app) => {
             res.status(422).send(err);
         }
     }) 
+
+    app.post('/api/surveys/webhooks', (req,res) => {
+        console.log(req.body);
+
+    })
     
     app.get('/api/surveys/thanks', (req,res)=>{
         const htmlResponse = `

@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieSession({
   maxAge: 30*24*60*60*1000,
